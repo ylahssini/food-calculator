@@ -1,0 +1,18 @@
+<fieldset class="search-bar__container">
+    <h1 class="search-bar__container__logo"><span>Food Calculator</span></h1>
+
+    <footer class="search-bar__container__footer">
+        <input placeholder="Search..." class="search-bar__container__input" [(ngModel)]="input" />
+        <button
+            *ngIf="input.length > 0"
+            (click)="handleClear()"
+            type="button"
+            class="las la-times search-bar__container__clear"
+        ></button>
+        <button
+            type="button"
+            class="las la-search search-bar__container__search"
+            aria-label="Search"
+        ></button>
+    </footer>
+</fieldset>

@@ -1,0 +1,54 @@
+.search-bar {
+    &__container {
+        width: var(--width);
+
+        &__logo {
+            color: #fff;
+            text-align: center;
+            font: 600 6rem 'Roboto';
+            text-shadow: 5px 5px 0 #000;
+        }
+
+        &__input {
+            background-color: #FFFFFF;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            font-size: 1.4rem;
+            width: 100%;
+            border: 0;
+            padding: 1rem 8rem 1rem 1rem;
+            outline: 0;
+            transition: all .1s ease-out;
+
+            &:focus {
+                outline: 6px solid rgba(0,0,0, 0.2);
+            }
+        }
+
+        &__footer {
+            position: relative;
+        }
+
+        &__clear, &__search {
+            font-size: 2rem;
+            background-color: transparent;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            line-height: 3.8rem;
+            cursor: pointer;
+        }
+
+        &__search {
+            right: 1rem;
+            color: orangered;
+        }
+
+        &__clear {
+            right: 4rem;
+            font-size: 1.5rem;
+            color: #aaa;
+        }
+    }
+}

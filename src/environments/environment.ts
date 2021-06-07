@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+    production: false,
+    firebase: {
+        apiKey: 'AIzaSyDmyFvKGd3rz84DOAJaD7n1QrrE2CFmpVo',
+        authDomain: 'food-calculator-dc745.firebaseapp.com',
+        databaseURL: 'https://food-calculator.firebaseio.com',
+        projectId: 'food-calculator-dc745',
+        storageBucket: 'food-calculator-dc745.appspot.com',
+        messagingSenderId: '240375495083',
+        appId: '1:240375495083:web:9897b174f58eba415a3aee',
+    }
 };
 
 /*

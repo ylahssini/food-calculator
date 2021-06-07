@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FoodsService } from 'src/app/services/foods.service';
 
 @Component({
     selector: 'app-search-bar',
@@ -7,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
     input = '';
+    foods = [];
 
-    constructor() { }
+    constructor(private foodsService: FoodsService) { }
 
     ngOnInit(): void {
     }
 
     handleClear() {
         this.input = '';
+    }
+
+    handleSubmit() {
+        this.foodsService.searchByValue().subscribe((res) => console.log(res));
     }
 }

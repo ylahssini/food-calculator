@@ -29,6 +29,7 @@ function init() {
                 const json = JSON.parse(xml2json.toJson(data));
                 const items = json.Food_Display_Table.Food_Display_Row;
                 const groupedItems = Object.entries(_.groupBy(items, 'Food_Code'));
+                const collections = [];
 
                 for (let i = 0; i < groupedItems.length; i += 1) {
                     const [key, foods] = groupedItems[i];
@@ -75,8 +76,9 @@ function init() {
                                 calories: parseFloat(food.Calories),
                             };
 
-                            const doc = collection.doc(id);
-                            await doc.set(item);
+                            /* const doc = collection.doc(id);
+                            await doc.set(item); */
+                            collections.push(item);
 
                             console.log(chalk.green('🎉 Document added'));
                         } catch (error) {
@@ -87,6 +89,8 @@ function init() {
 
                     console.log(chalk.cyan(`✔️ Finish key code ${key} with ${foods.length} item(s)\n\n`));
                 }
+
+                fs.writeFileSync(path.join(__dirname, '../src/data.json'), JSON.stringify(collections));
 
                 console.log(chalk.black.bgWhite.bold('E N D   M I G R A T I O N'));
             }

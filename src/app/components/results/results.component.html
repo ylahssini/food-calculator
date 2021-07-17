@@ -1,3 +1,9 @@
 <section class="results__container">
-    <p *ngIf="foods.length === 0">No results found</p>
+    <p *ngIf="foods === null || foods?.length === 0" class="results__container__not-found">No results found</p>
+
+    <div *ngIf="search.length > 0">
+        <h2>Results of search: <strong>{{search}}</strong></h2>
+        <ul>
+        </ul>
+    </div>
 </section>

@@ -8,7 +8,6 @@ import { FoodsService } from 'src/app/services/foods.service';
 })
 export class SearchBarComponent implements OnInit {
     input = '';
-    foods = [];
 
     constructor(private foodsService: FoodsService) { }
 
@@ -20,6 +19,7 @@ export class SearchBarComponent implements OnInit {
     }
 
     handleSubmit() {
-        this.foodsService.searchByValue().subscribe((res) => console.log(res));
+        this.foodsService.setSearch(this.input);
+        this.foodsService.getFoods();
     }
 }

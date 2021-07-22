@@ -2,7 +2,12 @@
     <h1 class="search-bar__container__logo"><span>Food Calculator</span></h1>
 
     <footer class="search-bar__container__footer">
-        <input placeholder="Search..." class="search-bar__container__input" [(ngModel)]="input" />
+        <input
+            placeholder="Search..."
+            class="search-bar__container__input"
+            [(ngModel)]="input"
+            (keydown)="handleEnter($event)"
+        />
         <button
             *ngIf="input.length > 0"
             (click)="handleClear()"

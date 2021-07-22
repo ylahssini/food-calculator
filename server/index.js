@@ -3,23 +3,9 @@ const path = require('path');
 const xml2json = require('xml2json');
 const _ = require('lodash');
 const chalk = require('chalk');
-const admin = require('firebase-admin');
-const config = require('./private/firebase.json');
-
-admin.initializeApp({
-    credential: admin.credential.cert({
-        projectId: config.project_id,
-        privateKey: config.private_key.replace(/\\n/g, '\n'),
-        clientEmail: config.client_email,
-    }),
-    databaseURL: 'https://food-calculator.firebaseio.com',
-});
-
-const db = admin.firestore();
 
 function init() {
     try {
-        const collection = db.collection('foods');
         console.log(chalk.black.bgWhite.bold('S T A R T   M I G R A T I O N'));
 
         fs.readFile(path.join(process.cwd(), './server/data.xml'), async (error, data) => {

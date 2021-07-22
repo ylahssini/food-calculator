@@ -11,7 +11,7 @@ const API = 'http://localhost:3004/foods';
 export class FoodsService {
     private foodsSource = new BehaviorSubject({
         search: '',
-        data: [] as unknown[],
+        data: [] as any,
     });
     public readonly foods = this.foodsSource.asObservable();
 
@@ -21,14 +21,25 @@ export class FoodsService {
         const state = this.foodsSource.getValue();
         const url = `${API}?name_like=${state.search}`;
 
-        this.http.get(url).subscribe((res: any) => {
+        if (state.search !== '') {
+            this.http.get(url).subscribe((res: any) => {
+                const state = this.foodsSource.getValue();
+                this.foodsSource.next({ ...state, data: res });
+            });
+        } else {
             const state = this.foodsSource.getValue();
-            this.foodsSource.next({ ...state, data: res });
-        });
+            this.foodsSource.next({ ...state, data: [] });
+        }
     }
 
     setSearch(value: string) {
         const state = this.foodsSource.getValue();
-        this.foodsSource.next({ ...state, search: value });
+        let next = { ...state, search: value };
+
+        if (value.length === 0) {
+            next = { data: [], search: value };
+        }
+
+        this.foodsSource.next(next);
     }
 }

@@ -1,0 +1,92 @@
+<h1 mat-dialog-title>
+    <small>More infos about:</small><br />
+    {{data.name}}
+</h1>
+<div mat-dialog-content>
+    <table class="dialog__table">
+        <caption>
+            <fieldset class="dialog__table__fieldset">
+                <label for="serving">Amount</label>
+                <input
+                    matInput
+                    id="serving"
+                    type="number"
+                    min="1"
+                    [(ngModel)]="serving"
+                    placeholder="1"
+                />
+                <span>servings</span>
+            </fieldset>
+        </caption>
+        <tr>
+            <th>Calories:</th>
+            <td>{{data.calories.toFixed(2)}}</td>
+            <td *ngIf="serving !== null">{{(data.calories * serving).toFixed(2)}}</td>
+        </tr>
+        <tr>
+            <td>Orange:</td>
+            <td>{{data.vegetables.orange.toFixed(2)}}</td>
+            <td *ngIf="serving !== null">{{data.vegetables.orange * serving}}</td>
+        </tr>
+        <tr>
+            <td>Dark green:</td>
+            <td>{{data.vegetables.drkgreen.toFixed(2)}}</td>
+            <td *ngIf="serving !== null">{{(data.vegetables.drkgreen * serving).toFixed(2)}}</td>
+        </tr>
+        <tr>
+            <td>Starchy:</td>
+            <td>{{data.vegetables.starchy.toFixed(2)}}</td>
+            <td *ngIf="serving !== null">{{(data.vegetables.starchy * serving).toFixed(2)}}</td>
+        </tr>
+        <tr>
+            <td>Other:</td>
+            <td>{{data.vegetables.other.toFixed(2)}}</td>
+            <td *ngIf="serving !== null">{{(data.vegetables.other * serving).toFixed(2)}}</td>
+        </tr>
+        <tr>
+            <th>Total vegetables:</th>
+            <td><strong>{{data.vegetables.total.toFixed(2)}}</strong></td>
+            <td *ngIf="serving !== null">{{(data.vegetables.total * serving).toFixed(2)}}</td>
+        </tr>
+        <tr>
+            <td>Solid fats:</td>
+            <td>{{data.solid_fats.toFixed(2)}}g</td>
+            <td *ngIf="serving !== null">{{(data.solid_fats * serving).toFixed(2)}}g</td>
+        </tr>
+        <tr>
+            <td>Fruits:</td>
+            <td>{{data.fruits.toFixed(2)}}</td>
+            <td *ngIf="serving !== null">{{(data.fruits * serving).toFixed(2)}}</td>
+        </tr>
+        <tr>
+            <td>Milk:</td>
+            <td>{{data.milk.toFixed(2)}}</td>
+            <td *ngIf="serving !== null">{{(data.milk * serving).toFixed(2)}}</td>
+        </tr>
+        <tr>
+            <td>Meats:</td>
+            <td>{{data.meats.toFixed(2)}}g</td>
+            <td *ngIf="serving !== null">{{(data.meats * serving).toFixed(2)}}g</td>
+        </tr>
+        <tr>
+            <td>Soy:</td>
+            <td>{{data.soy.toFixed(2)}}</td>
+            <td *ngIf="serving !== null">{{(data.soy * serving).toFixed(2)}}</td>
+        </tr>
+        <tr>
+            <td>Dry beans:</td>
+            <td>{{data.drybeans}}</td>
+            <td *ngIf="serving !== null">{{data.drybeans * serving}}</td>
+        </tr>
+        <tr>
+            <td>Oils:</td>
+            <td>{{data.oils.toFixed(2)}}</td>
+            <td *ngIf="serving !== null">{{(data.oils * serving).toFixed(2)}}</td>
+        </tr>
+        <tr>
+            <td>Added sugars:</td>
+            <td>{{data.added_sugars.toFixed(2)}}g</td>
+            <td *ngIf="serving !== null">{{(data.added_sugars * serving).toFixed(2)}}g</td>
+        </tr>
+    </table>
+</div>

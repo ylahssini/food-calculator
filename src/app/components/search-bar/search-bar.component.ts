@@ -15,11 +15,18 @@ export class SearchBarComponent implements OnInit {
     }
 
     handleClear() {
+        this.foodsService.setSearch('');
         this.input = '';
     }
 
     handleSubmit() {
         this.foodsService.setSearch(this.input);
         this.foodsService.getFoods();
+    }
+
+    handleEnter(event: KeyboardEvent) {
+        if (event.key === 'Enter') {
+            this.handleSubmit();
+        }
     }
 }

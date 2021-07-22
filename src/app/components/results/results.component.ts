@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FoodsService } from 'src/app/services/foods.service';
+import { DialogCalculator } from './dialog-calculator/dialog-calculator.component';
 
 @Component({
     selector: 'app-results',
@@ -9,16 +10,28 @@ import { FoodsService } from 'src/app/services/foods.service';
 })
 export class ResultsComponent implements OnInit {
     search = '';
-    foods = null as unknown[] | null;
+    foods = [] as any;
+    p: number = 1;
 
-    constructor(private foodsService: FoodsService) { }
+    constructor(private foodsService: FoodsService, public dialog: MatDialog) { }
 
     ngOnInit(): void {
-        this.foodsService.foods.subscribe((value) => {
-            console.log(value);
+        this.foodsService.foods.pipe().subscribe((value) => {
             this.foods = value.data;
+
+            if (this.search !== value.search) {
+                this.p = 1;
+            }
+
             this.search = value.search;
         });
     }
 
+    openDialog(food: Record<string, any>) {
+        this.dialog.open(DialogCalculator, {
+            data: food,
+            width: '600px',
+            height: 'auto',
+        });
+    }
 }

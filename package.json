@@ -26,6 +26,7 @@
     "concurrently": "^6.2.0",
     "json-server": "^0.16.3",
     "lodash": "^4.17.21",
+    "ngx-pagination": "^5.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "xml2json": "^0.12.0",

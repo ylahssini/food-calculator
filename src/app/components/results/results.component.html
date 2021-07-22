@@ -1,9 +1,25 @@
 <section class="results__container">
-    <p *ngIf="foods === null || foods?.length === 0" class="results__container__not-found">No results found</p>
+    <p *ngIf="search.length === 0 && foods.length === 0" class="results__container__not-found">No results found</p>
 
     <div *ngIf="search.length > 0">
-        <h2>Results of search: <strong>{{search}}</strong></h2>
-        <ul>
+        <h2>({{ foods.length }}) results of search: <strong>{{search}}</strong></h2>
+
+        <p *ngIf="foods.length === 0" class="results__container__not-found">No results found</p>
+
+        <ul class="results__container__list" *ngIf="foods.length > 0">
+            <li
+                *ngFor="let food of foods | paginate: { itemsPerPage: 10, currentPage: p }"
+                class="results__container__list__item"
+                (click)="openDialog(food)"
+                role="button"
+            >
+                <h4>{{food.name}}</h4>
+                <p>
+                    {{food.calories.toFixed(2)}} calories • {{food.portion.amount}} {{food.portion.name}}
+                </p>
+            </li>
         </ul>
+
+        <pagination-controls (pageChange)="p = $event" *ngIf="foods.length > 0"></pagination-controls>
     </div>
 </section>

@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve": "concurrently \"json-server --watch ./src/data.json --port 3004\" \"ng serve\""
+    "serve": "concurrently \"json-server --watch ./db.json --port 3004\" \"ng serve\""
   },
   "private": true,
   "dependencies": {

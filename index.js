@@ -1,6 +1,7 @@
 var jsonServer = require("json-server");
-const server = jsonServer.create()
-const router = jsonServer.router('./db.json')
+var path = require('path')
+var server = jsonServer.create()
+var router = jsonServer.router(path.join(__dirname, 'db.json'))
 var middlewares = jsonServer.defaults();
 var port = 3004;
 

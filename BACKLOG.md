@@ -18,23 +18,23 @@ search at runtime (hint: take a look at the CSV file format).
 
 ## User Stories
 
--   [ ] Developer will implement load the MyPyramid data into a database or a
+-   [v] Developer will implement load the MyPyramid data into a database or a
 data structure other than an array for faster searching. 
--   [ ] User can see an panel containing a food description input text box, 
+-   [v] User can see an panel containing a food description input text box, 
 a 'Search' button, and a 'Clear' button.
--   [ ] User can enter search terms into the food description input text box.
--   [ ] User can click on the 'Search' button to search for the matching food.
--   [ ] User can see a warning message if no search terms were entered.
--   [ ] User can see a warning message if no matches were found.
--   [ ] User can see a list of the matching food items, portion sizes, and
-calories in a scrollable results panel that is limited to 25 entries.
--   [ ] User can click on the 'Clear' button to clear the search terms and 
+-   [v] User can enter search terms into the food description input text box.
+-   [v] User can click on the 'Search' button to search for the matching food.
+-   [v] User can see a warning message if no search terms were entered.
+-   [v] User can see a warning message if no matches were found.
+-   [v] User can see a list of the matching food items, portion sizes, and
+calories in a scrollable results panel that is limited to 10 entries.
+-   [v] User can click on the 'Clear' button to clear the search terms and 
 results list. 
 
 ## Bonus features
 
--   [ ] User can see the count of the number of matching food items adjacent to
+-   [v] User can see the count of the number of matching food items adjacent to
 the results list.
 -   [ ] User can use a wildcard character in search terms.
--   [ ] User can see more than 25 entries from a search by clicking a Down
+-   [ ] User can see more than 10 entries from a search by clicking a Down
 icon button to add more matching food items to the search results list.

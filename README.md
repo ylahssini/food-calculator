@@ -1,4 +1,7 @@
 # FoodCalculator
+This is just my first project on Angular, It's about food calories calculator. I discovered how Angular works and also how to deploy it online by using Vercel which is great as server.
+
+to see the production: [Food Calculator](https://food-calculator.vercel.app/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
 

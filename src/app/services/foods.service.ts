@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-const API = 'http://localhost:3004/foods';
+const API = 'http://localhost:3000/api';
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +19,7 @@ export class FoodsService {
 
     getFoods() {
         const state = this.foodsSource.getValue();
-        const url = `${API}?name_like=${state.search}`;
+        const url = `${API}?name=${state.search}`;
 
         if (state.search !== '') {
             this.http.get(url).subscribe((res: any) => {

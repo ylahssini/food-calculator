@@ -1,9 +1,7 @@
-import { state } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
-const API = 'http://localhost:3000/api';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +17,7 @@ export class FoodsService {
 
     getFoods() {
         const state = this.foodsSource.getValue();
-        const url = `${API}?name=${state.search}`;
+        const url = `${environment.api}?name=${state.search}`;
 
         if (state.search !== '') {
             this.http.get(url).subscribe((res: any) => {
